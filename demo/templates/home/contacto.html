@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Contactanos{% endblock %}
+{% block content %}
+	{% if info_enviado %}
+		Gracias por enviar un comentario, nos pondremos en contacto con tigo
+		<br>
+		La informacion recibida fue la siguiente:
+		<br>
+		<p>Email Utilizado:	{{email}}</p>
+		<p>Titulo: {{titulo}}</p>
+		<p>texto: {{texto}} </p>
+	{% else %}
+		<form action="." method="POST">
+			{% csrf_token %}
+			{{form.as_p}}
+			<input type="submit" value="submit">
+		</form>
+	{% endif %}
+{% endblock %}
