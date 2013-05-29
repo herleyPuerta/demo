@@ -9,8 +9,8 @@ Producto {{ producto.nombre }}
 <p>$ {{ producto.precio }} </p>
 <p> Cantidad en Existencia: {{ producto.stock }} Unidades</p>
 {% if producto.stock > 0 %}
-	<a href="#">Comprar Producto</a>
+	<a class="btn btn-primary" href="#">Comprar Producto</a>
 {% endif %}
 <br><br>
-<a href="javascript:window.history.go(-1);">Regresar a la lista de Productos</a>
+<a href="javascript:window.history.go(-1);" class="btn btn-primary">Regresar a la lista de Productos</a>
 {% endblock %}
