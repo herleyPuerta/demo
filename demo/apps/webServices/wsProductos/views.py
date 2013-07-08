@@ -4,6 +4,6 @@ from demo.apps.ventas.models import Producto
 from django.core import serializers
 
 def wsProductos_view(request):
-	data = serializers.serialize("xml",Producto.objects.filter(status=True))
+	data = serializers.serialize("json",Producto.objects.filter(status=True))
 	#retorna la informacion en formato json
-	return HttpResponse(data,mimetype="application/xml")
+	return HttpResponse(data,mimetype="application/json")

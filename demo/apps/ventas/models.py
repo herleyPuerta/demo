@@ -10,7 +10,8 @@ class Cliente(models.Model):
 
 class Producto(models.Model):
 	def url(self,filename):
-		ruta="MultimediaData/Producto/%s/%s"%(self.nombre,str(filename))
+		ruta = "MultimediaData/Producto/%s/%s"%(self.nombre,str(filename))
+		return ruta
 	nombre		= models.CharField(max_length=100)
 	descripcion	= models.TextField(max_length=300)
 	status		= models.BooleanField(default=True)
