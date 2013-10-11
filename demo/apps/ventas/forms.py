@@ -1,5 +1,6 @@
 from django import forms
-
+from demo.apps.ventas.models import Producto
+"""
 class addProductForm(forms.Form):
 	nombre 		= forms.CharField(widget=forms.TextInput())
 	descripcion = forms.CharField(widget=forms.TextInput())
@@ -9,3 +10,10 @@ class addProductForm(forms.Form):
 
 	def clean(self):#valida informacion para que no haya informacion erronea
 		return self.cleaned_data
+"""
+
+class addProductForm(forms.ModelForm):
+	class Meta:
+		model  = Producto
+		exclude = {'status',}
+    

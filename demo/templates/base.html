@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{% block title %}Bienvenidos{% endblock %}
+	<title>
+		{% block title %}Bienvenidos{% endblock %}
 	</title>
 	<link rel="stylesheet" href="/media/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="/media/bootstrap/css/bootstrap-responsive.css">
@@ -26,7 +27,7 @@
 				success:function(response){
 					var i = (response.length-1)-2;
 					for(i;i<=response.length-1;i++){
-						$('#ProductosNuevos').append("<li>"+response[i].fields.nombre+"</li>");
+						$('#ProductosNuevos').append("<a href='/producto/"+(i+1)+"'><li>"+response[i].fields.nombre+"</li></a>");
 					}
 				}
 			});
@@ -37,21 +38,21 @@
 	<!-- pone el menu en la parte superior -->
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
-			<a class="brand" href="{% url vista_principal %}"> Proyecto Ventas</a>
+			<a class="brand" href="{% url "vista_principal" %}"> Proyecto Ventas</a>
 			{% if user.is_authenticated %}
 			<p class="navbar-text pull-right">
 				Usuario {{user.username}}
 			</p>
 			{% endif %}
 			<ul class="nav">
-			<li><a href="{% url vista_principal %}">Inicio</a></li>
+			<li><a href="{% url "vista_principal" %}">Inicio</a></li>
 			<li><a href="/productos/page/1/">Productos</a></li>
-			<li><a href="{% url vista_contacto %}">Contacto</a></li>
-			<li><a href="{% url vista_about %}">Acerca de...</a></li>
+			<li><a href="{% url "vista_contacto" %}">Contacto</a></li>
+			<li><a href="{% url "vista_about" %}">Acerca de...</a></li>
 			{% if user.is_authenticated %}
-			<li><a href="{% url vista_logout %}"> Cerrar Seccion</a></li>
+			<li><a href="{% url "vista_logout" %}"> Cerrar Seccion</a></li>
 			{% else %}
-			<li><a href="{% url vista_login %}">Login</a></li>
+			<li><a href="{% url "vista_login" %}">Login</a></li>
 			{% endif %}
 			</ul>
 		</div>
@@ -87,7 +88,7 @@
 		<hr>
 	</div>
 	<footer>
-		<p>&copy; Open Project 2013</p>
+		<p>&copy; Herley Puerta 2013</p>
 	</footer>
 </body>
 </html>

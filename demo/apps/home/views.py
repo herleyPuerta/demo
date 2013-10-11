@@ -6,13 +6,15 @@ from django.core.mail import EmailMultiAlternatives
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator,EmptyPage,InvalidPage
+import django
 
 def index_view(request):
 	return render_to_response('home/index.html', context_instance=RequestContext(request))
 
 def about_view(request):
+	version = django.get_version()
 	mensaje = "esto es un mensaje desde mi vista"
-	ctx = {'msg':mensaje}
+	ctx = {'msg':mensaje,'version':version}
 	return render_to_response('home/about.html',ctx, context_instance=RequestContext(request))
 
 def productos_view(request,pagina):
