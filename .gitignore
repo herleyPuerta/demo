@@ -1,5 +1,2 @@
-*.log
-*.pot
 *.pyc
-*.png
-*.jpg
+*.jpeg
